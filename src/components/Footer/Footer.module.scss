@@ -1,0 +1,228 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.footerWrap {
+  @include flex-row(center, center);
+  width: 100%;
+  background-color: $light;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(5, fit-content(300px));
+  grid-template-areas:
+    'logo nav mobile tel social'
+    'copyright nav mobile tel social';
+  justify-content: space-around;
+  column-gap: 10px;
+  width: 100%;
+  max-width: $max-desktop;
+  min-height: 50px;
+  padding-top: 55px;
+  padding-bottom: 60px;
+}
+
+.copyright {
+  @include font-regular-12;
+  grid-area: copyright;
+  width: 270px;
+  margin-top: 15px;
+  margin-left: 0;
+  transform: none;
+  color: $gray;
+
+  p {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+}
+
+.logoWrap {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 9px;
+  justify-content: left;
+  align-items: center;
+  grid-area: logo;
+  margin-left: 45px;
+}
+
+.logo {
+  padding-bottom: 10px;
+}
+
+.nav {
+  @include flex-column(flex-start, flex-start);
+  grid-area: nav;
+  width: 155px;
+  padding-top: 15px;
+}
+
+.menuItem {
+  @include font-medium-16;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.telColumn {
+  display: grid;
+  grid-template-columns: fit-content(30px) fit-content(170px);
+  grid-template-areas:
+    'tel-icon tel'
+    '. tel-text';
+  column-gap: 17px;
+  padding-top: 15px;
+  width: 160px;
+  margin-bottom: auto;
+
+  &__mobile {
+    width: 200px;
+    grid-area: mobile;
+  }
+
+  &__tel {
+    grid-area: tel;
+  }
+}
+
+.telIcon {
+  grid-area: tel-icon;
+}
+
+.telNumber {
+  @include font-medium-16;
+  grid-area: tel;
+}
+
+.telText {
+  @include font-regular-12;
+  grid-area: tel-text;
+  margin-top: 5px;
+  color: $gray;
+}
+
+.socialColumn {
+  @include list-reset;
+  @include flex-row(flex-start, flex-start);
+  flex-wrap: wrap;
+  grid-area: social;
+  padding-top: 15px;
+  padding-right: 28px;
+}
+
+.socialItem {
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'logo mobile'
+      'nav tel'
+      'copyright social';
+    justify-content: left;
+    column-gap: 40px;
+    max-width: $desktop;
+    padding-top: 60px;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .logoWrap {
+    align-items: initial;
+    margin-left: 0;
+  }
+
+  .logo {
+    transform: scale(0.8) translate(0, -10px);
+  }
+
+  .nav {
+    padding-top: 0;
+    margin-top: -10px;
+  }
+
+  .telColumn {
+    padding-top: 0;
+
+    &__tel {
+      padding-top: 20px;
+
+      margin-bottom: auto;
+    }
+  }
+
+  .telText {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .socialColumn {
+    padding-top: 0;
+    padding-right: 0;
+  }
+
+  .socialItem {
+    margin-right: 20px;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo '
+      'nav '
+      'mobile'
+      'tel'
+      'social';
+    justify-content: left;
+    column-gap: 0;
+    padding: 32px 15px 50px 15px;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .logoWrap {
+    transform: scale(0.8) translate(-35px, 0);
+    column-gap: 0;
+  }
+
+  .logo {
+    transform: scale(0.8) translate(-8px, -12px);
+  }
+
+  .nav {
+    margin-top: 5px;
+  }
+
+  .menuItem {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .telColumn {
+    padding-top: 20px;
+  }
+
+  .socialColumn {
+    padding-top: 20px;
+  }
+}

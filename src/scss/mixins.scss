@@ -1,0 +1,146 @@
+@import "variables";
+
+@mixin base-font($weight: 400) {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: $weight;
+}
+
+@mixin flex-column($main-axis, $second-axis) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $main-axis;
+  align-items: $second-axis;
+}
+
+@mixin flex-row($main-axis, $second-axis) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $main-axis;
+  align-items: $second-axis;
+}
+
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin pseudo {
+  content: "";
+  position: absolute;
+}
+
+@mixin visually-hidden-mixin {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.visually-hidden {
+  @include visually-hidden-mixin;
+}
+
+.display-none {
+  display: none;
+}
+
+@mixin button($width, $height) {
+  position: relative;
+
+  width: $width;
+  min-height: $height;
+
+  background: $background;
+  color: $white;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease-out;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid $background;
+    background: $white;
+    color: $background;
+  }
+}
+
+@mixin text-truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin track($color) {
+  height: 2px;
+  background-color: $color;
+  border: none;
+}
+
+@mixin thumb($color) {
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  background: $color;
+  border-radius: 50%;
+  border: none;
+}
+
+@mixin font-bold-41 {
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 41px;
+}
+
+@mixin font-medium-24 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+@mixin font-medium-22 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+@mixin font-medium-18 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+@mixin font-medium-16 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@mixin font-regular-18 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin font-regular-16 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@mixin font-regular-12 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+}

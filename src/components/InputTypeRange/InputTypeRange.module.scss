@@ -1,0 +1,146 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.inputWrap {
+  display: grid;
+  grid-template-rows: max-content max-content max-content;
+  grid-template-columns: 1fr;
+  row-gap: 5px;
+  justify-content: left;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.textAbove,
+.minRangeText,
+.maxRangeText {
+  @include font-regular-16;
+  color: $gray_text;
+}
+
+.textBelow {
+  @include font-regular-16;
+  color: $gray;
+}
+
+.InputTypeRange {
+  display: grid;
+  grid-template-rows: 60px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  border: 1px solid $text;
+  border-radius: 4px;
+
+  &__error {
+    border-color: $red;
+  }
+}
+
+.input {
+  @include font-medium-18;
+  width: 100%;
+  text-align: right;
+  color: $text;
+  border: none;
+  outline: none;
+}
+
+.units {
+  @include font-medium-18;
+  @include text-truncate;
+}
+
+.error {
+  @include font-regular-12;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  color: $red;
+  background-color: $white;
+  border: 1px solid $red;
+  z-index: 1;
+}
+
+.range {
+  width: 100%;
+  height: 14px;
+  margin-top: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track($light_element);
+  }
+
+  &::-moz-range-track {
+    @include track($light_element);
+  }
+
+  &::-ms-track {
+    @include track($light_element);
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb($background);
+  }
+
+  &::-moz-range-thumb {
+    @include thumb($background);
+  }
+
+  &::-ms-thumb {
+    @include thumb($background);
+  }
+
+  &::-ms-tooltip {
+    display: none;
+  }
+}
+
+.rangeText {
+  @include flex-row(space-between, flex-start);
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .inputWrap {
+    margin-top: 15px;
+    margin-right: 0;
+  }
+
+  .textAbove {
+    line-height: 20px;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .inputWrap {
+    margin-top: 10px;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .units {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.heroWrap {
+  @include flex-row(flex-start, center);
+  position: relative;
+
+  &__moveLeftSlide {
+    transition: transform 0.5s linear;
+    transform: translateX(-100vw);
+  }
+}
+
+.paggination {
+  @include flex-row(center, center);
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background-color: $paggination;
+  border-radius: 50%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__active {
+    background-color: $white;
+  }
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .paggination {
+    bottom: 15px;
+    left: 50%;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .paggination {
+    bottom: 10px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}

@@ -1,0 +1,90 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+.tabWrap {
+  @include flex-column(flex-start, center);
+  width: 100%;
+  padding-top: 60px;
+}
+
+.tabList {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  width: 100%;
+  max-width: $desktop-core;
+  min-height: 93px;
+}
+
+.button {
+  @include font-medium-18;
+  display: grid;
+  grid-template-columns: fit-content(60px) fit-content(160px);
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  outline: none;
+  background: $white;
+  cursor: pointer;
+
+  &__active {
+    background: $light;
+  }
+}
+
+.paggination {
+  display: none;
+}
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .tabWrap {
+    position: relative;
+    padding-top: 0;
+  }
+
+  .tabList {
+    display: none;
+  }
+
+  .paggination {
+    @include flex-row(center, center);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    background-color: $paggination;
+    border-radius: 50%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &__active {
+      background-color: $white;
+    }
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .paggination {
+    bottom: 10px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}

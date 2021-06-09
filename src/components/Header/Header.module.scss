@@ -1,0 +1,212 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.headerWrap {
+  @include flex-row(center, center);
+  width: 100%;
+  background-color: $light;
+}
+
+.header {
+  @include flex-row(space-around, center);
+  width: 100%;
+  max-width: $max-desktop;
+  min-height: 91px;
+}
+
+.logo {
+  padding-bottom: 10px;
+}
+
+.nav {
+  @include flex-row(flex-start, center);
+  flex-wrap: wrap;
+  flex-basis: 615px;
+  flex-shrink: 10;
+}
+
+.logoWrap {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 9px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+
+.menuItem {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 25px;
+}
+
+.login {
+  @include flex-row(flex-end, center);
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 20px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+
+  span {
+    margin-left: 9px;
+  }
+}
+
+.menu,
+.closeMenu {
+  display: none;
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .header {
+    min-height: 69px;
+    max-width: calc(#{$desktop} - 1px);
+  }
+
+  .login {
+    padding-left: 0;
+    padding-right: 15px;
+
+    span {
+      display: none;
+    }
+  }
+
+  .logoWrap {
+    padding-top: 5px;
+    padding-left: 20px;
+    transform: scale(0.9);
+  }
+
+  .nav {
+    flex-basis: 430px;
+  }
+
+  .menuItem {
+    margin-right: 20px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .menu,
+  .closeMenu {
+    display: none;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .headerWrap {
+    touch-action: none;
+  }
+
+  .header {
+    min-height: 48px;
+    justify-content: space-between;
+    max-width: calc(#{$tablet} - 1px);
+    position: relative;
+    touch-action: none;
+
+    &__mobile {
+      @include flex-column(flex-start, flex-start);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      padding-top: 3px;
+      z-index: 5;
+      background-color: $white;
+    }
+  }
+
+  .menu {
+    @include flex-column(center, center);
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 16px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .closeMenu {
+    @include flex-column(center, center);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav {
+    display: none;
+
+    &__mobile {
+      @include flex-column(flex-start, center);
+      flex-basis: auto;
+      width: calc(100% - 30px);
+      margin-right: 15px;
+      margin-left: 15px;
+      margin-top: 35px;
+
+      .menuItem {
+        box-sizing: border-box;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        padding-left: 15px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        width: 100%;
+        border-top: 1px solid $light_element;
+      }
+    }
+  }
+
+  .logoWrap {
+    transform: scale(0.8) translate(30px, 0);
+    padding-left: 0;
+    column-gap: 5px;
+  }
+
+  .logo {
+    transform: scale(0.85);
+  }
+
+  .login {
+    justify-content: flex-start;
+    padding-left: 10px;
+
+    img {
+      transform: scale(0.75);
+    }
+
+    &__mobile {
+      width: calc(100% - 30px);
+      min-height: 60px;
+      margin-right: 15px;
+      margin-left: 15px;
+      border-top: 1px solid $light_element;
+      border-bottom: 1px solid $light_element;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}

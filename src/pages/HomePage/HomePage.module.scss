@@ -1,0 +1,79 @@
+@import '../../scss/mixins';
+
+.homePage {
+  width: 100%;
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+.popupCaption {
+  @include font-medium-22;
+}
+
+.popupText {
+  @include font-regular-16;
+
+  text-align: center;
+}
+
+.popup {
+  min-width: $desktop-popup;
+  padding: 60px 67px;
+}
+
+.popupLogin {
+  @include flex-column(flex-start, center);
+  width: 544px;
+  padding: 60px;
+  border: 4px solid $background;
+  border-radius: 0;
+}
+
+.popupLoginClose {
+  transform: translate(-35px, 35px);
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .popupCaption {
+    text-align: center;
+  }
+
+  .popupLoginClose {
+    transform: translate(-62px, 35px);
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .popup {
+    min-width: $mobile-popup;
+    padding: 40px 26px;
+  }
+
+  .popupLogin {
+    padding: 50px 20px;
+  }
+
+  .popupCaption {
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  .popupText {
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .popupLoginClose {
+    transform: translate(-5px, 25px);
+  }
+}

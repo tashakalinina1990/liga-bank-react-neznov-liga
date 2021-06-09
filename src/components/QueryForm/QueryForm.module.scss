@@ -1,0 +1,172 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.queryForm {
+  @include flex-column(flex-start, stretch);
+  width: 770px;
+  min-height: 300px;
+  padding: 60px 70px 70px 70px;
+  background-color: $light;
+}
+
+.queryCaption {
+  @include font-medium-22;
+  align-self: center;
+  margin: 0;
+}
+
+.queryTextWrap {
+  @include flex-column(flex-start, stretch);
+  padding-top: 10px;
+}
+
+.queryTextContainer {
+  @include flex-row(space-between, flex-start);
+  position: relative;
+  padding-top: 17px;
+  padding-bottom: 8px;
+
+  &::before {
+    @include pseudo;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $light_element;
+  }
+}
+
+.queryText {
+  @include font-medium-22;
+
+  &__small {
+    @include font-regular-16;
+  }
+}
+
+.button {
+  @include button(198px, 51px);
+  align-self: center;
+  margin-top: 40px;
+}
+
+.inputWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'input-top input-top'
+    'input-left input-right';
+  justify-content: space-between;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin-top: 30px;
+}
+
+.input {
+  @include font-regular-18;
+  @include text-truncate;
+  height: 60px;
+  padding-right: 24px;
+  padding-left: 24px;
+  outline: none;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background-color: $light;
+
+  &::placeholder {
+    color: $gray;
+  }
+
+  &__top {
+    grid-area: input-top;
+  }
+
+  &__left {
+    grid-area: input-left;
+  }
+
+  &__right {
+    grid-area: input-right;
+  }
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .queryForm {
+    width: 100%;
+    padding: 52px 0 0 0;
+    background-color: $white;
+  }
+
+  .queryCaption {
+    font-size: 18px;
+  }
+
+  .queryTextWrap {
+    padding-top: 20px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .input {
+    background-color: $white;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .queryForm {
+    padding: 40px 0 0 0;
+  }
+
+  .queryCaption {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .queryTextContainer {
+    @include flex-column(flex-start, flex-start);
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .queryText {
+    font-size: 18px;
+    line-height: 25px;
+
+    &__small {
+      order: 1;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .inputWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'input-top'
+      'input-left'
+      'input-right';
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 20px;
+    margin-top: 30px;
+  }
+
+  .input {
+    padding-left: 15px;
+    font-size: 16px;
+  }
+
+  .button {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}

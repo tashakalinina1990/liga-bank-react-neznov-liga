@@ -1,0 +1,44 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.wrap {
+  @include flex-row(flex-start, center);
+  height: 16px;
+}
+
+.label {
+  @include font-regular-16;
+  @include flex-row(flex-start, center);
+  position: relative;
+  padding-left: 24px;
+  line-height: 16px;
+
+  &::before {
+    @include pseudo;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    transform: translate(0, -50%);
+    background: $white;
+    border: 2px solid $background;
+    border-radius: 2px;
+  }
+}
+
+.input:checked + label::before {
+  background-color: $background;
+  background-image: url('../../img/icon-check-white.svg');
+  background-repeat: no-repeat;
+  background-position: top 45% left 45%;
+  background-size: 8px auto;
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,125 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.inputWrap {
+  display: grid;
+  grid-template-rows: max-content max-content max-content;
+  grid-template-columns: 1fr;
+  row-gap: 5px;
+  justify-content: left;
+  margin-top: 18px;
+  margin-right: 60px;
+}
+
+.textAbove {
+  @include font-regular-16;
+  color: $gray_text;
+}
+
+.textBelow {
+  @include font-regular-16;
+  color: $gray;
+}
+
+.inputTypeNumber {
+  display: grid;
+  grid-template-rows: 60px;
+  grid-template-columns: max-content 1fr 1fr max-content;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  border: 1px solid $text;
+  border-radius: 4px;
+
+  &__error {
+    border-color: $red;
+  }
+}
+
+.input {
+  @include font-medium-18;
+  width: 100%;
+  text-align: right;
+  color: $text;
+  border: none;
+  outline: none;
+}
+
+.units {
+  @include font-medium-18;
+  @include text-truncate;
+}
+
+.numberButtonAction {
+  position: relative;
+  width: 64px;
+  height: 100%;
+
+  &::before {
+    @include pseudo;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background-color: $text;
+  }
+
+  &__plus {
+    &::after {
+      @include pseudo;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      transform: translate(-50%, -50%);
+      background-color: $text;
+    }
+  }
+}
+
+.error {
+  @include font-regular-12;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform: translate(-50%, -30%);
+  color: $red;
+  background-color: $white;
+  border: 1px solid $red;
+  z-index: 1;
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .inputWrap {
+    row-gap: 7px;
+    margin-right: 0;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .inputWrap {
+    margin-top: 10px;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .units {
+    font-size: 16px;
+  }
+
+  .textBelow {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

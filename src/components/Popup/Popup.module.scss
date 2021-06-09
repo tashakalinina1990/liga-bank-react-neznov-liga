@@ -1,0 +1,47 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.popupWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-height: 193px;
+  transform: translate(-50%, -50%);
+  background-color: $light;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.closeButton {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../img/icon-close.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  border: none;
+  cursor: pointer;
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .popup {
+    max-width: $tablet-popup;
+    width: calc(100% - 30px);
+  }
+}

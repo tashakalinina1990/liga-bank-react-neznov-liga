@@ -1,0 +1,185 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.wrap {
+  @include flex-column(flex-start, center);
+  width: 100%;
+  padding-top: 60px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  grid-template-areas:
+    'header header'
+    'step-1 step-2'
+    'step-3 step-3';
+  justify-content: space-between;
+  column-gap: 10px;
+  width: 100%;
+  max-width: $max-desktop;
+  min-height: 93px;
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
+.form {
+  grid-area: step-1;
+  margin-bottom: 0;
+}
+
+.header {
+  @include font-bold-41;
+  grid-area: header;
+  margin-right: auto;
+}
+
+.stepCaption {
+  @include font-medium-22;
+  margin-top: 28px;
+  margin-bottom: 0;
+
+  &__marginTop {
+    margin-top: 33px;
+  }
+}
+
+.select {
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.checkoutForm {
+  grid-area: step-2;
+  margin-top: 30px;
+  margin-bottom: auto;
+}
+
+.queryForm {
+  grid-area: step-3;
+  justify-self: center;
+  margin-top: 72px;
+}
+
+.checkbox {
+  margin-top: 18px;
+}
+
+.minLoanMessage {
+  width: $desktop-popup;
+  min-height: 193px;
+  margin-bottom: auto;
+  padding: 60px;
+  background-color: $light;
+  border-radius: 4px;
+}
+
+.minLoanMessageCaption {
+  @include font-medium-22;
+  margin-top: 0;
+}
+
+.minLoanMessageText {
+  @include font-regular-16;
+  margin-bottom: 0;
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .wrap {
+    padding-top: 48px;
+  }
+
+  .header {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'step-1'
+      'step-2'
+      'step-3';
+    max-width: calc(#{$desktop} - 1px);
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .stepCaption {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .select {
+    margin-right: 0;
+  }
+
+  .checkbox {
+    margin-top: 10px;
+  }
+
+  .checkoutForm {
+    margin-top: 40px;
+  }
+
+  .queryForm {
+    margin-top: 0;
+  }
+
+  .minLoanMessage {
+    max-width: $tablet-popup;
+    width: 100%;
+    min-height: 193px;
+    margin-top: 20px;
+  }
+
+  .minLoanMessageCaption {
+    max-width: 360px;
+  }
+
+  .minLoanMessageText {
+    max-width: 270px;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .header {
+    margin-top: 5px;
+    font-size: 22px;
+    line-height: 31px;
+  }
+
+  .content {
+    max-width: calc(#{$tablet} - 1px);
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .stepCaption {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .minLoanMessage {
+    padding: 40px 15px;
+  }
+
+  .minLoanMessageCaption {
+    max-width: 210px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .minLoanMessageText {
+    max-width: 255px;
+    line-height: 22px;
+  }
+}

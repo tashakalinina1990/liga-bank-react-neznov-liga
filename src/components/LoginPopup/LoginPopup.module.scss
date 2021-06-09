@@ -1,0 +1,131 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.wrap {
+  @include flex-column(flex-start, center);
+  width: 100%;
+}
+
+.logoWrap {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-areas:
+    'logo text'
+    'logo bank';
+  justify-content: left;
+  column-gap: 9px;
+  row-gap: 5px;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.logoText {
+  grid-area: text;
+}
+
+.logoBank {
+  grid-area: bank;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  font-size: 25px;
+  border: 1px solid $text;
+  border-radius: 4px;
+  background-color: $light;
+  padding-left: 15px;
+  padding-right: 60px;
+}
+
+.login {
+  @include flex-column(flex-start, flex-start);
+  width: 100%;
+  margin-top: 90px;
+}
+
+.inputTitle {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: $gray_text;
+}
+
+.password {
+  @include flex-column(flex-start, flex-start);
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.showPasswordButton {
+  justify-self: flex-end;
+  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 17px;
+  color: $gray;
+  margin-left: auto;
+}
+
+.button {
+  @include button(100%, 60px);
+  margin-top: 30px;
+}
+
+.showPassword {
+  @include flex-row(center, center);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.showPasswordImg {
+  transition: transform 0.2s linear;
+
+  &__rotate {
+    transform: rotate(180deg) translate(0, 4px);
+  }
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .wrap {
+    width: 500px;
+  }
+
+  .logoWrap {
+    left: 88px;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .wrap {
+    width: 100%;
+  }
+
+  .logoWrap {
+    top: 50px;
+    left: 15px;
+  }
+
+  .showPasswordButton {
+    justify-self: center;
+    margin-top: 15px;
+    order: 1;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.error404 {
+  @include flex-column(center, center);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.error404__link {
+  @include font-medium-18;
+
+  margin-top: 25px;
+  padding: 15px;
+
+  color: $black;
+  border: 2px solid $black;
+  border-radius: 8px;
+}

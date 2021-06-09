@@ -1,0 +1,92 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// ---------- Desktop ----------------
+
+.checkoutForm {
+  @include flex-column(flex-start, stretch);
+  width: 100%;
+  min-height: 389px;
+  padding: 60px;
+  background-color: $light;
+}
+
+.checkoutCaption {
+  @include font-medium-22;
+  margin: 0;
+}
+
+.checkoutTextWrap {
+  display: grid;
+  justify-content: space-between;
+  row-gap: 30px;
+  column-gap: 10px;
+  grid-template-columns: repeat(2, fit-content(190px));
+  padding-top: 20px;
+}
+
+.checkoutTextContainer {
+  @include flex-column(flex-start, stretch);
+}
+
+.checkoutText {
+  @include font-medium-22;
+
+  &__small {
+    @include font-regular-16;
+  }
+}
+
+.button {
+  @include button(100%, 51px);
+  margin-top: auto;
+}
+
+// ---------- Tablet ----------------
+
+@media (max-width: calc(#{$desktop} - 1px) ) {
+  .checkoutTextWrap {
+    justify-content: left;
+    column-gap: 50px;
+    padding-top: 22px;
+  }
+
+  .checkoutForm {
+    min-height: 395px;
+  }
+}
+
+// ---------- Mobile ----------------
+
+@media (max-width: calc(#{$tablet} - 1px) ) {
+  .checkoutForm {
+    margin-top: 30px;
+    padding: 38px 15px 40px 15px;
+  }
+
+  .checkoutCaption {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .checkoutTextWrap {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+
+  .checkoutText {
+    font-size: 18px;
+    line-height: 25px;
+
+    &__small {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .button {
+    margin-top: 13px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
